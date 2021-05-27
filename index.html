@@ -7,14 +7,33 @@
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>
+    <h1 id="title">
       <a href="about.html" class="title">MathGame</a>
     </h1>
     <div class="button-container">
-      <a href="#" class="button block" onclick="newGame()">New Game</a>
-      <a href="options.html" class="button block">Options</a>
-      <a href="leaderboard.html" class="button block">Leaderboard</a>
+      <a id="newGameBtn" href="#" class="button block" onclick="newGame()"
+        >New Game</a
+      >
+      <a id="optionsBtn" href="options.html" class="button block">Options</a>
+      <a id="leaderboardBtn" href="leaderboard.html" class="button block"
+        >Leaderboard</a
+      >
     </div>
+
+    <section id="game">
+      <div class="username" id="username">apostolos</div>
+      <div class="questionBox" id="questionBox"></div>
+      <div class="answerBox">
+        <div class="top-answers">
+          <div class="answer" onclick="answer(1)" id="answer1"></div>
+          <div class="answer" onclick="answer(2)" id="answer2"></div>
+        </div>
+        <div class="bottom-answers">
+          <div class="answer" onclick="answer(3)" id="answer3"></div>
+          <div class="answer" onclick="answer(4)" id="answer4"></div>
+        </div>
+      </div>
+    </section>
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -49,3 +49,48 @@ h1 {
 .block {
     display: block;
 }
+
+.questionBox {
+    margin-top: 400px;
+    height: 150px;
+    background-color: darkgrey;
+    color: #000000;
+    text-align: center;
+    font-size: 80px;
+    padding-top: 50px;
+    border: 10px solid tan;
+}
+
+.answerBox {
+    text-align: center;
+}
+
+.top-answers {}
+
+.bottom-answers {}
+
+.answer {
+    background-color: darkgrey;
+    height: 100px;
+    width: 500px;
+    display: inline-block;
+    font-size: 50px;
+    border-radius: 25px;
+    margin: 10px;
+    padding-top: 30px;
+    border: 1px solid #000000;
+}
+
+.answer:hover {
+    background-color: lightcoral;
+}
+
+.username {
+    font-size: 30px;
+    color: bisque;
+    text-align: right;
+}
+
+#game {
+    display: none;
+}
