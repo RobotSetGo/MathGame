@@ -9,8 +9,16 @@ var answer1 = document.getElementById("answer1");
 var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var answer4 = document.getElementById("answer4");
+var questionNumberText = document.getElementById("questionNumberText");
+var wrongAnswerNumberText = document.getElementById("wrongAnswerNumberText");
+var pointsText = document.getElementById("points");
+var gameOverText = document.getElementById("gameOver");
+var finalPoints = document.getElementById("finalPoints");
+var newQuestionButton = document.getElementById("newQuestion");
 var correctChoice = 0;
 var points = 0;
+var questionNumber = 0;
+
 
 function newGame() {
     var username = prompt("Please enter your username", "username");
@@ -24,12 +32,23 @@ function newGame() {
 }
 
 function newQuestion() {
+    newQuestionButton.style.display = "none";
+    answer1.style.border = "none";
+    answer2.style.border = "none";
+    answer3.style.border = "none";
+    answer4.style.border = "none";
+    answer1.style.backgroundColor = "darkgrey";
+    answer2.style.backgroundColor = "darkgrey";
+    answer3.style.backgroundColor = "darkgrey";
+    answer4.style.backgroundColor = "darkgrey";
     var random1 = getRandomNumber(1, 100);
     var random2 = getRandomNumber(1, 100);
     var praxi = getRandomNumber(1, 4);
     var symbol = "";
     var correct = 0;
     correctChoice = getRandomNumber(1, 4);
+    questionNumber++;
+    questionNumberText.innerHTML = questionNumber;
 
     if (praxi == 1) {
         symbol = "+";
@@ -88,14 +107,63 @@ function getRandomNumber(from, until) {
 }
 
 function answer(choice) {
-    if (choice === correctChoice) {
-        alert("Σωστή Απάντηση");
-    } else {
-        alert("Λάθος");
+    var choiceButton = null;
+    if (choice == 1) {
+        choiceButton = answer1;
     }
 
-    newQuestion();
+    if (choice == 2) {
+        choiceButton = answer2;
+    }
+
+    if (choice == 3) {
+        choiceButton = answer3;
+    }
+
+    if (choice == 4) {
+        choiceButton = answer4;
+    }
+    choiceButton.style.border = "5px solid yellow";
+
+    choiceButton.style.border = "5px solid yellow";
+    setTimeout(function () {
+        choiceButton.style.border = "none";
+        setTimeout(function () {
+            choiceButton.style.border = "5px solid yellow";
+            setTimeout(function () {
+                if (choice === correctChoice) {
+                    points++;
+                    pointsText.innerHTML = points;
+                    choiceButton.style.backgroundColor = "green";
+                    newQuestionButton.style.display = "block";
+                } else {
+                    choiceButton.style.backgroundColor = "red";
+                    var wrongAnswers = questionNumber - points;
+                    wrongAnswerNumberText.innerHTML = wrongAnswers;
+                    if (wrongAnswers >= 3) {
+                        gameOver();
+                    } else {
+                        newQuestionButton.style.display = "block";
+                    }
+                }
+            }, 500);
+        }, 500);
+    }, 500);
 }
 
+function gameOver() {
+    gameOverText.style.display = "block";
+    gameContainer.style.display = "none";
+    finalPoints.innerHTML = points;
+    points = 0;
+    questionNumber = 0;
+}
 
-
+function backToHome() {
+    gameOverText.style.display = "none";
+    gameContainer.style.display = "none";
+    newGameButton.style.display = "block";
+    optionsButton.style.display = "block";
+    leaderboardButton.style.display = "block";
+    title.style.display = "block";
+}

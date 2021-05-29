@@ -51,7 +51,7 @@ h1 {
 }
 
 .questionBox {
-    margin-top: 400px;
+    margin-top: 200px;
     height: 150px;
     background-color: darkgrey;
     color: #000000;
@@ -88,9 +88,53 @@ h1 {
 .username {
     font-size: 30px;
     color: bisque;
+}
+
+.infoContainer {
     text-align: right;
 }
 
+.points {
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.questionNumber {
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.wrongAnswerNumber {
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.gameOver {
+    text-align: center;
+    font-size: 200px;
+    color: red;
+}
+
+.finalPoints {
+    font-size: 100px;
+    text-align: center;
+    color: red;
+}
+
+.backToHome {
+    font-size: 50px;
+    padding: 30px;
+}
+
+.newQuestion {
+    font-size: 30px;
+    padding: 10px;
+}
+
 #game {
+    display: none;
+}
+
+#gameOver {
     display: none;
 }

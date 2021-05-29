@@ -21,7 +21,16 @@
     </div>
 
     <section id="game">
-      <div class="username" id="username">apostolos</div>
+      <div class="infoContainer">
+        <div class="username" id="username"></div>
+        <div class="points">Αριθμός πόντων: <span id="points">0</span></div>
+        <div class="questionNumber">
+          Αριθμός ερωτήσεων: <span id="questionNumberText">1</span>
+        </div>
+        <div class="wrongAnswerNumber">
+          Αριθμός λαθών: <span id="wrongAnswerNumberText">0</span>
+        </div>
+      </div>
       <div class="questionBox" id="questionBox"></div>
       <div class="answerBox">
         <div class="top-answers">
@@ -32,6 +41,20 @@
           <div class="answer" onclick="answer(3)" id="answer3"></div>
           <div class="answer" onclick="answer(4)" id="answer4"></div>
         </div>
+        <div style="text-align: center">
+          <button class="newQuestion" onclick="newQuestion()" id="newQuestion">
+            Επόμενη ερώτηση
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="gameOver">
+      <div class="gameOver">GAME OVER</div>
+      <div class="finalPoints">Πόντοι: <span id="finalPoints">10</span></div>
+      <div style="text-align: center">
+        <button class="backToHome" onclick="backToHome()">
+          Επιστροφή στην αρχική οθόνη
+        </button>
       </div>
     </section>
     <script src="js/main.js"></script>
